@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+
 require 'vendor/autoload.php';
 require 'database/ConnectionFactory.php';
 require 'database/SetlistGeneratorService.php';
