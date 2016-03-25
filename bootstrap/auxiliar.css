@@ -1,0 +1,115 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.jumbotron {
+	font-family: 'Lobster';
+    text-align: center;
+	font-size: 25px;
+	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+    margin-top: 0px;
+	padding-top: 0px;
+    height: 55px;
+}
+
+
+.buttonsField {
+	width: 550px;
+	margin-top: -25px;
+	margin-bottom: 5px;
+}
+
+.body {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.buttonsField {
+	width: 100%;
+	height: 100%;
+}
+
+#button {
+	width: 32.6%;
+    font-size: 11px;
+    padding-left: 1px;
+    padding-right: 1px;
+    text-align: center;
+}
+
+.table {
+	width: 100%;
+	margin-bottom: 5px;	
+	font-size: 11px;
+}
+
+.erase:hover {
+    cursor: pointer;
+}
+
+.letras {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/*
+.jumbotron {
+	font-family: 'Lobster';
+	font-size: 40px;
+	width: 550px;
+	height: 90px;
+	border-radius: 5px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 5px;
+}
+
+.form-control {
+	width: 550px;
+	margin-bottom: 5px;	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.table {
+	width: 550px;
+	margin-bottom: 5px;	
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 12px;
+}
+
+td {
+	padding-bottom: 50px;
+}
+
+#button {
+	width: 150px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.buttonsField {
+	width: 550px;
+	margin-top: -25px;
+	margin-bottom: 5px;	
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.message {
+	width: 550px;
+	margin-bottom: 5px;	
+	margin-left: auto;
+	margin-right: auto;
+}
+*/
