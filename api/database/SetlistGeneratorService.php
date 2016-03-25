@@ -22,5 +22,15 @@ class SetlistGeneratorService {
         $newMusic = $db->setlist->insert($newMusic);
         return $newMusic;
     }
+    
+    public static function delete($id) {
+        $db = ConnectionFactory::getDB();
+        $music = $db->setlist[$id];
+        if($music) {
+            $music->delete();
+            return true;
+        }
+        return false;
+    }
 }
 ?>

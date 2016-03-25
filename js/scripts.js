@@ -17,19 +17,13 @@ app.controller("SetlistGeneratorController", function($scope, $http) {
 			delete $scope.music;
 		});
 	};
-
-    $scope.excluirMusica = function(remove) {
-        console.log("excluiu");  
-        console.log(remove);
-        console.log(remove.check);
-        console.log($scope.remove.check);
-        
-    };
     
-    $scope.check = function(id, name) {
+    $scope.excluirMusica = function(id, name) {
         if(confirm("Deseja excluir "+ name +" ?")) {
-            console.log(id);
-            console.log(name);
+            $http.delete("http://localhost/api/deleteMusic/" + id['0']).success(function (data){
+                $scope.carregarSetlist();
+                console.log(data);
+            });
         }
     };
     

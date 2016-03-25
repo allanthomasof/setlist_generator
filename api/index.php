@@ -22,6 +22,15 @@ $app->post('/addMusic/', function() use ( $app ) {
     }
 });
 
+$app->delete('/deleteMusic/:id', function($id) use ( $app ) {
+
+    if(SetlistGeneratorService::delete($id)) {
+        echo "excluiu";
+    } else {
+        echo $id;
+    }
+    
+});
 
 //RETURNS A FULL SETLIST
 $app->get('/fullSetlist/', function() use ( $app ) {

@@ -16,11 +16,30 @@
     height: 55px;
 }
 
+.form-control {
+    margin-bottom: 5px;
+    width: 90%;
+    height: 35px;
+    
+	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 5px;
+}
 
 .buttonsField {
 	width: 550px;
 	margin-top: -25px;
 	margin-bottom: 5px;
+    margin-left: auto;
+	margin-right: auto;
+    
+	width: 550px;
+	height: 90px;
+	border-radius: 5px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .body {
@@ -40,6 +59,19 @@
     padding-left: 1px;
     padding-right: 1px;
     text-align: center;
+}
+
+#botaoCadastrar {
+    margin-top: 25px;
+    width: 125px;
+    height: 120px;
+    border-radius: 50%;
+    font-family: 'Lobster';
+    font-size: 40px;
+}
+
+#botaoName {
+    margin-top: 25px;
 }
 
 .table {

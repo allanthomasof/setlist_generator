@@ -25,6 +25,8 @@
         </div>
 
 		<div ng-show="tab == 1">
+            <pre>{{letra}}</pre>
+            <pre>{{nomeMusica}}</pre>
 			<table class="table table-striped">
 				<tr>
 					<th>#</th>
@@ -39,20 +41,17 @@
 					<td>{{music.author}}</td>
 				</tr>
 			</table>
-            
-            <pre>{{letra}}</pre>
-            <pre>{{nomeMusica}}</pre>
 		</div>
 
 		<div ng-show="tab == 2">
-			<input class="form-control" type="text" ng-model="music.name" placeholder="Name"/>
+			<input class="form-control" type="text" ng-model="music.name" placeholder="Name" id="botaoName"/>
 			<input class="form-control" type="text" ng-model="music.author" placeholder="Author"/>
 			<select class="form-control" ng-model="music.origin">
 				<option value="National">National</option>
 				<option value="International">International</option>
 			</select>
 			<button class="form-control btn-primary" ng-click="adicionarMusica(music)"
-				    ng-disabled="!music.name || !music.author || !music.origin">Ok!</button>
+				    ng-disabled="!music.name || !music.author || !music.origin" id="botaoCadastrar">Ok!</button>
 			<div class="message">
 				{{result}}	
 			</div>
@@ -65,7 +64,7 @@
 					<th>Name</th>
 					<th>Author</th>
 				</tr>
-				<tr ng-repeat="music in setList" ng-click="check([music.id], [music.name])">
+				<tr ng-repeat="music in setList" ng-click="excluirMusica([music.id], [music.name])">
                     <td class="erase">{{music.id}}</td>
 					<td class="erase">{{music.name}}</td>
 					<td class="erase">{{music.author}}</td>
