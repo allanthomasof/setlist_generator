@@ -48,5 +48,5 @@ app.controller("SetlistGeneratorController", function($scope, $http) {
     };
 
 
-	$scope.message = "Gerador de Setlist!";
+	$scope.message = "Setlist Manager";
 });
