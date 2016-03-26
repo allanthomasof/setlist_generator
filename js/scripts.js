@@ -9,8 +9,14 @@ app.controller("SetlistGeneratorController", function($scope, $http) {
 			$scope.setList = data;
 			$scope.index = 0;
 		});
-        $scope.carregarLetras();
 	};
+    
+    $scope.shuffleSetlist = function() {
+        $http.get("http://" + host + "/api/fullSetlistShuffle/").success(function (data){
+			$scope.setList = data;
+			$scope.index = 0;
+		});
+    };
 
 	$scope.adicionarMusica = function(music) {
 		$http.post("http://" + host + "/api/addMusic/", music).success(function (data){ 
@@ -42,5 +48,5 @@ app.controller("SetlistGeneratorController", function($scope, $http) {
     };
 
 
-	$scope.message = "Setlist Generator";
+	$scope.message = "Gerador de Setlist!";
 });

@@ -8,7 +8,6 @@ require 'database/notorm/NotORM.php';
 
 $app = new \Slim\Slim();
 
-
 //ADD A SINGLE MUSIC
 $app->post('/addMusic/', function() use ( $app ) {
 	$musicJson = $app->request()->getBody();
@@ -24,35 +23,30 @@ $app->post('/addMusic/', function() use ( $app ) {
     }
 });
 
+//DELETA UMA MUSICA A PARTIR DE UM ID
 $app->delete('/deleteMusic/:id', function($id) use ( $app ) {
-
     if(SetlistGeneratorService::delete($id)) {
         echo "excluiu";
     } else {
         echo $id;
-    }
-    
+    }  
 });
 
-//RETURNS A FULL SETLIST
+//RETORNA O SET LIST COMPLETO ORDENADO POR NOME DE MUSICA
 $app->get('/fullSetlist/', function() use ( $app ) {
     $setlist = SetlistGeneratorService::getFullSetlist();
     $app->response()->header('Content-Type', 'application/json');
     echo json_encode($setlist);
 });
 
-
-//RETURNS A INTERNATIONAL SETLIST SHUFFLE
-$app->get('/internationalSetlist', function() use ( $app ) {
-    $consulta = $conexao_pdo->prepare("SELECT * FROM setlist WHERE origin = 'international'");
-	$consulta->execute();
-	$result = $consulta;
-	while($row = $result->fetch(PDO::FETCH_ASSOC)){
-		$indexedOnly[] = $row;
-	}
-	shuffle($indexedOnly);
-	echo json_encode($indexedOnly);
+//RETORNA O SET LIST COMPLETO ORDENADO POR NOME DE MUSICA
+$app->get('/fullSetlistShuffle/', function() use ( $app ) {
+    $setlist = SetlistGeneratorService::getFullSetlist();
+    $app->response()->header('Content-Type', 'application/json');
+    shuffle($setlist);
+    echo json_encode($setlist);
 });
+
 
 
 $app->run();

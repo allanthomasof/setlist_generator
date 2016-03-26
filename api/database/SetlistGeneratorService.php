@@ -5,7 +5,7 @@ class SetlistGeneratorService {
         $db = ConnectionFactory::getDB();
         $setlist = array();
         
-        foreach($db->setlist() as $music) {
+        foreach($db->setlist()->order("name") as $music) {
            $setlist[] = array (
                'id' => $music['id'],
                'name' => $music['name'],
@@ -13,7 +13,6 @@ class SetlistGeneratorService {
                'origin' => $music['origin']
            ); 
         }
-        
         return $setlist;
     }
 

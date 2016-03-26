@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html ng-app="SetlistGenerator">
+<head>
+    <meta name="viewport" content="width=device-width">
+	<title>Gerador de Setlist</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster" />
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/auxiliar.css">
+	<script src="js/angular.js"></script>
+	<script src="js/scripts.js"></script>
+</head>
+<body class="body">
+	<div ng-controller = "SetlistGeneratorController">
+		<h4 class="jumbotron">
+			{{message}}
+		</h4>
+
+		<div class="buttonsField">
+			<button id="button" class="btn btn-danger" ng-click="tab=1; carregarSetlist();" 
+				    ng-class="{'active' : tab==1}">Carregar Setlist</button>
+			<button id="button" class="btn btn-danger" ng-click="tab=2" ng-class="{'active' : tab==2}">Adicionar Músicas</button>
+			<button id="button" class="btn btn-danger" ng-click="tab=3; carregarSetlist();"
+                    ng-class="{'active' : tab==3}">Remover Músicas</button>     
+        </div>
+
+		<div ng-show="tab == 1">
+            <pre>{{letra}}</pre>
+            <pre>{{nomeMusica}}</pre>
+            <button id="botaoEmbaralhar" class="btn btn-warning" ng-click="shuffleSetlist()">Embaralhar</button>
+			<table class="table table-striped">
+				<tr>
+					<th>#</th>
+					<th>Letra</th>
+					<th>Nome</th>
+					<th>Autor</th>
+				</tr>
+				<tr ng-repeat="music in setList">
+					<td>{{$index + 1}}</td>
+					<td><img src="img/letras.png" ng-click="carregarLetras([music.name], [music.author])" class="letras"/></td>
+					<td>{{music.name}}</td>
+					<td>{{music.author}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<div ng-show="tab == 2">
+			<input class="form-control" type="text" ng-model="music.name" placeholder="Nome" id="botaoName"/>
+			<input class="form-control" type="text" ng-model="music.author" placeholder="Banda - Artista"/>
+			<select class="form-control" ng-model="music.origin">
+				<option value="National">National</option>
+				<option value="International">International</option>
+			</select>
+			<button class="form-control btn-success" ng-click="adicionarMusica(music)"
+				    ng-disabled="!music.name || !music.author || !music.origin" id="botaoCadastrar">Ok!</button>
+			<div class="message">
+				{{result}}	
+			</div>
+		</div>
+
+		<div ng-show="tab == 3">
+            <table class="table table-striped">
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Author</th>
+				</tr>
+				<tr ng-repeat="music in setList" ng-click="excluirMusica([music.id], [music.name])">
+                    <td class="erase">{{$index + 1}}</td>
+					<td class="erase">{{music.name}}</td>
+					<td class="erase">{{music.author}}</td>
+				</tr>
+			</table>
+		</div>    
+        
+    </div>
+</body>
+</html>
